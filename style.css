@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: rgb(153, 156, 214);
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: rgb(255, 255, 255);
+  color: rgb(82, 86, 173);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 10.5em;
+}
+
+button:hover {
+  background: rgb(228, 220, 220);
+}
+
+.dimension-input-area {
+  grid-column-start: 1;
+  align-self: end;
+  justify-self: end;
+  display: none;
+}
+
+.dimension-input {
+  width: 10em;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+
+.drag-area {
+  border: 2px dashed rgb(255, 255, 255);
+  height: 30em;
+  width: 50em;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drag-area.active {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.drag-area .icon {
+  font-size: 100px;
+  color: rgb(255, 255, 255);
+}
+
+.drag-area header {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+
+.drag-area span {
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin: 10px 0 15px 0;
+}
+
+.drag-area img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.canvas-area {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.drag-area-with-img {
+  border: 2px dashed rgb(255, 255, 255);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.origin-position-button-area {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.origin-position-button {
+  height: 30px;
+  width: 30px;
+  padding: 0px 0px;
+  border-radius: 8px;
+  background-color: rgb(255, 250, 175);
+
+  background-position: center;
+}
+
+.origin-position-button:hover {
+  background-color: rgb(224, 222, 160);
+}
+
+#origin-position-1 {
+  transform: rotate(90deg);
+}
+
+#origin-position-2 {
+  transform: rotate(180deg);
+}
+
+#origin-position-3 {}
+
+#origin-position-4 {
+  transform: rotate(270deg);
+}
+
+.button-area {
+  align-self: end;
+  display: none;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  margin-bottom: 10px;
+}
+
+.text-area {
+  position: relative;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(255, 255, 255);
+  width: 22em;
+  height: 20em;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  grid-column-start: 4;
+  grid-row-start: 2;
+  align-self: start;
+  display: none
+}
+
+#code-block {
+  width: 100%;
+  height: 100%;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+#copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  padding: 6px 0px 10px 0px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#copy-btn:hover {
+  background-color: #0056b3;
+}
+
+#reload-btn {
+  background-color: rgb(255, 187, 187);
+  margin-right: 0.5em;
+}
+
+#reset-btn {
+  background-color: rgb(255, 250, 175);
+}
+
+#reload-btn:hover {
+  background-color: rgb(201, 147, 147);
+}
+
+#reset-btn:hover {
+  background-color: rgb(224, 222, 160);
+}
+
+@media (max-width: 1600px) {
+  body {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .dimension-input-area {
+    justify-self: center;
+    margin-left: 35px;
+  }
+
+  .canvas-area {
+    grid-column-start: 2;
+    grid-column-end: 8;
+  }
+
+  .button-area {
+    grid-column-start: 8;
+    margin-right: 35px;
+  }
+
+  .text-area {
+    grid-column-start: 8;
+    margin-right: 35px;
+  }
+}
+
+@media (max-width: 1350px) {
+  body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+  }
+
+  .dimension-input-area {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    justify-self: center;
+  }
+
+  .dimension-input {
+    margin: 0px 5px 0px 5px;
+  }
+
+  .canvas-area {
+    grid-row-start: 2;
+    grid-row-end: 10;
+    grid-column-start: 1;
+    justify-self: center;
+  }
+
+  .button-area {
+    grid-row-start: 10;
+    grid-row-end: 11;
+    grid-column-start: 1;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .text-area {
+    grid-row-start: 11;
+    grid-row-end: 16;
+    grid-column-start: 1;
+    justify-self: center;
+    align-self: start;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 745px) {
+
+  .drag-area button {
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: 450;
+  }
+
+  .drag-area {
+    height: 400px;
+    width: 450px;
+  }
+
+  .drag-area header {
+    font-size: 25px;
+    font-weight: 450;
+    color: #fff;
+  }
+
+  .drag-area .icon {
+    font-size: 80px;
+  }
+
+}

@@ -175,7 +175,7 @@ function getProcessedPoint(point) {
   const heightRatio = (dimensionHeight.value.trim() || dimensionHeight.placeholder) / canvas.height;
   let x = originNumber & 1 << 0 ? Math.abs(point.x - canvas.width) : point.x;
   let y = originNumber & 1 << 1 ? Math.abs(point.y - canvas.height) : point.y;
-  return [(x * widthRatio).toFixed(0), (y * heightRatio).toFixed(0)];
+  return [parseInt((x * widthRatio).toFixed(0)), parseInt((y * heightRatio).toFixed(0))];
 }
 
 function showInCodeBlock() {
